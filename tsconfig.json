@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",               // Define o alvo da transpilação (versão do JS gerado)
+    "module": "CommonJS",             // Sistema de módulos para compatibilidade com Node.js
+    "rootDir": "./src",
+    "esModuleInterop": true,          // Permite importar módulos CommonJS usando sintaxe ESM
+    "skipLibCheck": true,             // Ignora verificações em declarações de tipo de bibliotecas
+    "strict": true,                   // Ativa verificações mais rígidas de TypeScript
+    "forceConsistentCasingInFileNames": true, // Garante consistência nos nomes de arquivos
+    "outDir": "./dist"                // Diretório de saída para os arquivos compilados
+  },
+  "include": ["src"],         // Onde estão os arquivos TypeScript
+  "exclude": ["node_modules"]         // Pastas a serem ignoradas
+}
