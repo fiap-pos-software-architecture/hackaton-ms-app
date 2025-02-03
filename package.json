@@ -19,7 +19,8 @@
     "docker:up": "rimraf dist && docker-compose up -d",
     "docker:down": "docker-compose down",
     "test": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "frame:generate":"ffmpeg -i src/fast-food-project.mp4 -r 0.05 outputFile_%02d.png"
   },
   "dependencies": {
     "@types/joi": "^17.2.3",
