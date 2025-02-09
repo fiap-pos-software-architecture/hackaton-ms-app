@@ -20,19 +20,20 @@
     "docker:down": "docker-compose down",
     "test": "jest",
     "coverage": "jest --coverage",
-    "frame:generate":"ffmpeg -i src/fast-food-project.mp4 -r 0.05 outputFile_%02d.png"
+    "frame:generate": "ffmpeg -i src/fast-food-project.mp4 -r 0.05 outputFile_%02d.png"
   },
   "dependencies": {
     "@types/joi": "^17.2.3",
     "body-parser": "^1.20.2",
     "cors": "~2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.19.2",
+    "express": "^4.21.2",
     "ffmpeg": "^0.0.4",
     "ffmpeg.js": "^4.2.9003",
     "http-status": "^1.7.4",
     "moment": "^2.30.1",
     "morgan": "~1.10.0",
+    "multer": "^1.4.5-lts.1",
     "mysql2": "^3.9.7",
     "nodemon": "^3.1.0",
     "reflect-metadata": "^0.2.2",
