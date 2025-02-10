@@ -12,7 +12,7 @@ export class Upload implements IUpload {
   name: string;
 
   @Column()
-  data: any;
+  path: string;
 
   // @Column()
   // description: string;

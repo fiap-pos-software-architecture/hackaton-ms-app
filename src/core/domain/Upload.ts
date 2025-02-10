@@ -8,7 +8,7 @@ export enum CATEGORIES {
 export interface IUpload {
   id: number;
   name: string;
-  data: any;
+  path: string;
   // description: string;
   // price: number;
   // category: CATEGORIES;
