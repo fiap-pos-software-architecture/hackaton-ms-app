@@ -14,7 +14,7 @@ RUN npm run build
 
 ENV MYSQL_USER=app_user \
     MYSQL_PASSWORD=ms_app_password \
-    MYSQL_DATABASE=hackaton \
+    MYSQL_DATABASE=hackaton_app_BD \
     MYSQL_HOST=mysql-db-hackaton \
     MYSQL_PORT=3306
 
