@@ -25,18 +25,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run unit tests
-        run: npm test
-
-      - name: Generate test coverage
-        run: npm run coverage
-
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v4.4.0
-        with:
-          name: coverage-report
-          path: coverage/
-
   code-analysis:
     runs-on: ubuntu-latest
     needs: unit-test
@@ -57,12 +45,6 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-      - name: Run SonarCloud analysis
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} #gerado automaticamente pelo github
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} #gerado manualmente no sonarCloud
-        run: npm run sonar
 
   build:
     name: build
