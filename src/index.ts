@@ -6,6 +6,9 @@ import 'reflect-metadata';
 import swaggerUi from 'swagger-ui-express';
 import swaggerDocument from '../dist/swagger.json';
 import { AppDataSource } from './data-source';
+import authRoute from './adapters/driver/api/routers/authRoute';
+import fileRoute from './adapters/driver/api/routers/fileRoute';
+import videoRoute from './adapters/driver/api/routers/videoRoute';
 
 const app = express();
 
@@ -14,7 +17,7 @@ AppDataSource.initialize()
     app.use(cors.default());
     app.use(bodyParser.json());
     app.use(logger.default('dev'));
-    app.use(express.json());
+    app.use(express.json(), authRoute, fileRoute, videoRoute);
 
     app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
