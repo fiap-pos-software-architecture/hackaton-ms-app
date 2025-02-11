@@ -1,14 +1,14 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { IUpload } from '../../../core/domain/Upload';
+import { IAuth } from '../../../core/domain/Auth';
 
 @Entity()
-export class Upload implements IUpload {
+export class Auth implements IAuth {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  name: string;
+  email: string;
 
   @Column()
-  path: string;
+  password: string;
 }

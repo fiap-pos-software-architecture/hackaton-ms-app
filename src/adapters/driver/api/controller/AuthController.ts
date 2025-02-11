@@ -1,21 +1,22 @@
 import { Body, Controller, Delete, Get, Path, Post, Put, Query, Route, Tags } from 'tsoa';
-import { IUploadService } from '../../../../core/applications/ports/services/IUploadService';
-import { CreateUploadDto } from './dto/UploadDto';
-import { IUpload } from '../../../../core/domain/Upload';
+import { CreateAuthDto } from './dto/AuthDto';
+import { IAuthService } from '../../../../core/applications/ports/services/IAuthService';
+import { IAuth } from '../../../../core/domain/Auth';
 
-@Route('uploads')
-@Tags('Uploads')
-export class UploadController extends Controller {
-  private uploadService: IUploadService;
 
-  constructor(uploadService: IUploadService) {
+@Route('auth')
+@Tags('Auth')
+export class AuthController extends Controller {
+  private authService: IAuthService;
+
+  constructor(authService: IAuthService) {
     super();
-    this.uploadService = uploadService;
+    this.authService = authService;
   }
 
   /**
    * Create a new product
-   * @param createUploadDto The product data to create
+   * @param createAuthDto The product data to create
    */
   // @Post()
   // public async create(@Body() createUploadDto: CreateUploadDto): Promise<IPUpload> {
@@ -23,8 +24,8 @@ export class UploadController extends Controller {
   // }
 
   @Post()
-  public async create(@Body() createUploadDto: CreateUploadDto): Promise<IUpload> {
-    return this.uploadService.create(createUploadDto);
+  public async create(@Body() createAuthDto: CreateAuthDto): Promise<IAuth> {
+    return this.authService.create(createAuthDto);
   }
 
   /**

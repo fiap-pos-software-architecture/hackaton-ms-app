@@ -1,24 +1,26 @@
 import { DataSource, Repository } from 'typeorm';
 import { Upload } from '../../../driven/repository/Upload';
 import { IUploadRepository } from '../../../../core/applications/ports/repository/IUploadRepository';
+import { IAuthRepository } from '../../../../core/applications/ports/repository/IAuthRepository';
+import { Auth } from '../../../driven/repository/Auth';
 
-export class UploadRepository implements IUploadRepository {
-  private repository: Repository<Upload>;
+export class AuthRepository implements IAuthRepository {
+  private repository: Repository<Auth>;
 
   constructor(dataSource: DataSource) {
-    this.repository = dataSource.getRepository('upload');
+    this.repository = dataSource.getRepository('auth');
   }
 
-  create: IUploadRepository['create'] = (data) => {
+  create: IAuthRepository['create'] = (data) => {
     const entity = this.repository.create(data);
     return this.repository.save(entity);
   };
 
-  save: IUploadRepository['save'] = (entity) => {
+  save: IAuthRepository['save'] = (entity) => {
     return this.repository.save(entity);
   };
 
-  findOneBy: IUploadRepository['findOneBy'] = (where) => {
+  findOneBy: IAuthRepository['findOneBy'] = (where) => {
     return this.repository.findOneBy(where);
   };
 

@@ -1,14 +1,14 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { IUpload } from '../../../core/domain/Upload';
+import { IVideo } from '../../../core/domain/Video';
 
 @Entity()
-export class Upload implements IUpload {
+export class Video implements IVideo {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  name: string;
+  videoPath: string;
 
   @Column()
-  path: string;
+  interval: number;
 }

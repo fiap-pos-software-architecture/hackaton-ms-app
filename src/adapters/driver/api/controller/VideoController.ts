@@ -1,16 +1,16 @@
 import { Body, Controller, Delete, Get, Path, Post, Put, Query, Route, Tags } from 'tsoa';
-import { IUploadService } from '../../../../core/applications/ports/services/IUploadService';
-import { CreateUploadDto } from './dto/UploadDto';
-import { IUpload } from '../../../../core/domain/Upload';
+import { IVideoService } from '../../../../core/applications/ports/services/IVideoService';
+import { CreateVideoDto } from './dto/VideoDto';
+import { IVideo } from '../../../../core/domain/Video';
 
-@Route('uploads')
-@Tags('Uploads')
-export class UploadController extends Controller {
-  private uploadService: IUploadService;
+@Route('videos')
+@Tags('Videos')
+export class VideoController extends Controller {
+  private videoService: IVideoService;
 
-  constructor(uploadService: IUploadService) {
+  constructor(videoService: IVideoService) {
     super();
-    this.uploadService = uploadService;
+    this.videoService = videoService;
   }
 
   /**
@@ -22,9 +22,14 @@ export class UploadController extends Controller {
   //   return this.uploadService.create(createUploadDto);
   // }
 
+  // @Post()
+  // public async create(@Body() createVideoDto: CreateVideoDto): Promise<IVideo> {
+  //   return this.videoService.create(createVideoDto);
+  // }
+
   @Post()
-  public async create(@Body() createUploadDto: CreateUploadDto): Promise<IUpload> {
-    return this.uploadService.create(createUploadDto);
+  public async extractFrames(@Body() createVideoDto: CreateVideoDto): Promise<IVideo> {
+    return this.videoService.create(createVideoDto);
   }
 
   /**

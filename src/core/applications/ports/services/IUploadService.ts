@@ -1,5 +1,4 @@
-// import { IProduct } from '../../../domain/Product';
+import { IUpload } from '../../../domain/Upload';
 import { IService } from './IService';
 
-// export interface IUploadService extends IService<IProduct> {}
-export interface IUploadService extends IService<any> {}
+export interface IUploadService extends IService<IUpload> {}

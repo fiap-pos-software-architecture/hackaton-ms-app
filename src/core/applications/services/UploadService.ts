@@ -1,6 +1,5 @@
-// import { IProduct } from '../../domain/Upload';
-import {  IUploadRepository } from '../ports/repositories/IUploadRepository';
-// import { IProductService } from '../ports/services/IProductService';
+import { IUpload } from '../../domain/Upload';
+import {  IUploadRepository } from '../ports/repository/IUploadRepository';
 import { IUploadService } from '../ports/services/IUploadService';
 
 export class UploadService implements IUploadService {
@@ -11,7 +10,7 @@ export class UploadService implements IUploadService {
   }
 
   
-  public async create(uploadData: Partial<any>): Promise<any> {
+  public async create(uploadData: Partial<IUpload>): Promise<IUpload> {
     const upload = await this.uploadRepository.create(uploadData);
     return this.uploadRepository.save(upload);
   }

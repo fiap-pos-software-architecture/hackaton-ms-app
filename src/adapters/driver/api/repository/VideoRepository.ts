@@ -1,24 +1,24 @@
 import { DataSource, Repository } from 'typeorm';
-import { Upload } from '../../../driven/repository/Upload';
-import { IUploadRepository } from '../../../../core/applications/ports/repository/IUploadRepository';
+import { IVideoRepository } from '../../../../core/applications/ports/repository/IVideoRepository';
+import { Video } from '../../../driven/repository/Video';
 
-export class UploadRepository implements IUploadRepository {
-  private repository: Repository<Upload>;
+export class VideoRepository implements IVideoRepository {
+  private repository: Repository<Video>;
 
   constructor(dataSource: DataSource) {
-    this.repository = dataSource.getRepository('upload');
+    this.repository = dataSource.getRepository('videos');
   }
 
-  create: IUploadRepository['create'] = (data) => {
+  create: IVideoRepository['create'] = (data) => {
     const entity = this.repository.create(data);
     return this.repository.save(entity);
   };
 
-  save: IUploadRepository['save'] = (entity) => {
+  save: IVideoRepository['save'] = (entity) => {
     return this.repository.save(entity);
   };
 
-  findOneBy: IUploadRepository['findOneBy'] = (where) => {
+  findOneBy: IVideoRepository['findOneBy'] = (where) => {
     return this.repository.findOneBy(where);
   };
 
